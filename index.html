@@ -7683,6 +7683,12 @@ const eligible=()=>DF.id!=='hell'&&[0,1,2,3,4,5,6,7,8].every(n=>!slotInfo(n));
     }
     const before=G.projs.length;
     const result=_fa.call(this,w,aim,mult,o);
+    if(TR.on&&G.mode==='train'){
+      for(let i=before;i<G.projs.length;i++){
+        const p=G.projs[i];
+        if(p.from==='p'&&p.type==='arrow')p.life=1e6;
+      }
+    }
     if(missed){for(let i=before;i<G.projs.length;i++)if(G.projs[i].from==='p'&&G.projs[i].type==='arrow')G.projs[i].tutorialMiss=TR.token}
     return result;
   };
